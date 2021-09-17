@@ -1,19 +1,20 @@
 <template>
-  <div v-clickoutside="hide" class="drop-down">
+  <div class="drop-down">
     <div class="phone-show-menu" @click="handleMenuClick">
       <span>{{ title }}</span>
-      <v-icon name="arrow-down-b"></v-icon>
     </div>
-    <ul 
-      class="phone-hide" 
+    <ul
+      class="phone-hide"
       :class="{
-        'show': show
-      }">
+        show: show,
+      }"
+    >
       <li
         v-for="(item, index) in items"
         :key="index"
         class="nav-item link-item"
-        @click="handleItemClick(item.title)">
+        @click="handleItemClick(item.title)"
+      >
         <nuxt-link :to="{ name: item.name }">{{ item.title }}</nuxt-link>
       </li>
     </ul>
@@ -22,12 +23,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import Clickoutside from '@/utils/dom/clickoutside'
 
 export default {
   name: 'VDropdown',
-  directives: { Clickoutside },
-  data () {
+  data() {
     return {
       show: false,
       title: '首页',
@@ -35,72 +34,75 @@ export default {
         { name: 'index', title: '首页' },
         { name: 'books', title: '小册' },
         { name: 'repos', title: '开源库' },
-        { name: 'events-all', title: '活动' }
-      ]
+        { name: 'events-all', title: '活动' },
+      ],
     }
   },
   computed: {
     ...mapState({
-      isPhone: state => state.isPhone
-    })
+      isPhone: (state) => state.isPhone,
+    }),
   },
   methods: {
-    handleMenuClick () {
+    handleMenuClick() {
       this.show = !this.show
     },
-    handleItemClick (title) {
+    handleItemClick(title) {
       this.show = false
       this.title = title
     },
-    hide () {
+    hide() {
       this.show = false
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 .drop-down {
-  // display flex
-  // align-items center
-  // justify-content center
-  // padding 0 2rem
-  // font-size 1.3rem
-  // color #007fff
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  font-size: 1.3rem;
+  color: #007fff;
+  li {
+    margin: 0 10px;
+  }
   .phone-show-menu {
-    display none
+    display: none;
   }
   span {
-    margin-right .5rem 
+    margin-right: 0.5rem;
   }
   .phone-hide {
-    display flex
+    display: flex;
     .nuxt-link-exact-active {
-      color #007fff
+      color: #007fff;
     }
   }
 }
-@media (max-width 980px) {
+@media (max-width: 980px) {
   .drop-down {
     .phone-show-menu {
-      height 5rem
-      display flex
-      align-items center
-      font-size 1.33rem
-      color #007fff
-      justify-content center
-      padding 0 2rem
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.33rem;
+      color: #007fff;
+      justify-content: center;
+      padding: 0 2rem;
     }
     .phone-hide {
-      display none
-      background-color #fff
-      box-shadow 0 1px 2px 0 rgba(0,0,0,.1)
-      border 1px solid hsla(217,5%,71%,.45)
-      border-radius 4px
-      font-size 1.2rem
+      display: none;
+      background-color: #fff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid hsla(217, 5%, 71%, 0.45);
+      border-radius: 4px;
+      font-size: 1.2rem;
     }
     .phone-hide.show {
-      display block  
+      display: block;
     }
   }
 }

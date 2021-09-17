@@ -10,32 +10,32 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 .title-row {
-  margin .5rem 0 .8rem
-  white-space nowrap
-  overflow hidden
-  text-overflow ellipsis
+  margin: 0.5rem 0 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .title {
-  font-size 1.4rem
-  font-weight 600
-  line-height 1.2
-  color #2e3135
-  cursor pointer
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #2e3135;
+  cursor: pointer;
   &:hover {
-    color #007fff
+    color: #007fff;
   }
 }
-@media (max-width 600px) {
+@media (max-width: 600px) {
   .title {
-    font-size 1.2rem
+    font-size: 1.2rem;
   }
 }
 </style>
