@@ -116,15 +116,15 @@ export default {
             }
         },
         babel: { // babel相关配置
-            'plugins': [ // element-ui 按需加载
-                [
-                    'component',
-                    {
-                        'libraryName': 'element-ui',
-                        'styleLibraryName': 'theme-chalk'
-                    }
-                ]
-            ],
+            // 'plugins': [ // element-ui 按需加载
+            //     [
+            //         'component',
+            //         {
+            //             'libraryName': 'element-ui',
+            //             'styleLibraryName': 'theme-chalk'
+            //         }
+            //     ]
+            // ],
             'comments': true
         },
         publicPath: '/static/', // 配置打包的静态资源文件目录。可以是cdn地址
