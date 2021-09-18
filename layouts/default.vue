@@ -2,7 +2,7 @@
   <div>
     <v-header></v-header>
     <main ref="container" class="content-container">
-      <nuxt/>
+      <nuxt />
     </main>
   </div>
 </template>
@@ -12,22 +12,22 @@ import VHeader from '~/components/home/header'
 
 export default {
   components: {
-    VHeader
-  }
+    VHeader,
+  },
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 .content-container {
-  position relative
-  margin 0 auto
-  width 100%
-  max-width 960px
-  top 5rem
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  top: 5rem;
   &::after {
-    display table
-    content ""
-    clear both  
+    display: table;
+    content: '';
+    clear: both;
   }
 }
 </style>
