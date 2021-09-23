@@ -82,7 +82,7 @@ upstream nodenuxt {
 }
 server {
   listen 80;
-  server_name www.qiangdada.cn;
+  server_name expswl.gome.com.cn;
   
   location / {
     proxy_http_version 1.1;
