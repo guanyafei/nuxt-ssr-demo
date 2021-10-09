@@ -8,8 +8,9 @@ export default function({ store, redirect, $axios, app }) {
             console.log("cookies", app.$cookies.get('token'))
                 // TODO 使用Vuex存储Token，并做持久化处理
                 // config.headers.common['X-Token'] = store.state.token
-            config.headers['Authorization'] = 'Bearer ' + app.$cookies.get('token')
-                // get请求映射params参数
+                // config.headers['Authorization'] = 'Bearer ' + app.$cookies.get('token');
+            config.headers['Authorization'] = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImJmYWZhYTZjLTg2ZmYtNGU5Yi1iNjkwLTBjNmVkNjY2OTIxZCJ9.EbH9Pb3cVtY8JjeznDXcvw5w5MG-1BUi1JXh39z7g8CoS16hKsDchBGkW6yagjF__2olumSfkek8KvwxVbB0Bw';
+            // get请求映射params参数
             if (config.method === 'get' && config.params) {
                 let url = config.url + '?';
                 for (const propName of Object.keys(config.params)) {
